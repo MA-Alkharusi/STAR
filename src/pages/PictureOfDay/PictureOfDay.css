@@ -1,8 +1,4 @@
-/* PictureOfDay.css */
-
-.picture-container {
-  /* ... existing styles ... */
-}
+/* CHANGE ALL THIS CSS */
 
 body.pictureofday-body {
   background: none; /* remove the background image */
@@ -10,6 +6,13 @@ body.pictureofday-body {
 h1{
   color : white;
 }
+h2{
+  color: white;
+}
 p{
   color: white;
+}
+img{
+  width: 30%;
+  height: 30%;
 }

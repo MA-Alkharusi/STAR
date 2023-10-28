@@ -57,8 +57,10 @@ function PictureOfDay() {
   return(
     //here we are returning the data and displaying it to the screen 
     <div className="picture-container">
+      
       <img src={data.url} alt={data.title} className="picture-image" />
       <h1 className="picture-title">{data.title}</h1>
+      <h2>Astronomic Picture of the Day</h2>
       <p className="picture-explanation">{data.explanation}</p>
     </div>
   );

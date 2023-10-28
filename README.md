@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+#Prerequisites:
+Node.js installed and npm(comes with Node.js)
+Git installed
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###Local Machine Setup [TESTED]:
 
-## Available Scripts
+#1. Click the <>Code drop down button inside our github STAR repository page.
+Under the HTTPS tab copy the following link:
+https://github.com/fabianwolski/STAR.git
 
-In the project directory, you can run:
+#2. Create a new folder on your local machine where you would like to clone the
+repository into.
 
-### `npm start`
+#3. Open VSCode(or in GitBash), open the fresh folder you have just created, go into view>terminal. Once you have the terminal open
+run the following command:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+git clone https://github.com/fabianwolski/STAR.git
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[ERROR] git : The term 'git' is not recognized as the name of a cmdlet, function, script file, or 
+operable program.
 
-### `npm test`
+This means you have not installed git or there is issues with your current version. Please install/reinstall
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#4. Navigate to project directory
+run the following command:
+cd STAR
 
-### `npm run build`
+#5 Installing dependencies
+run the following commands:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install i react-lottie --legacy-peer-deps
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you get this error: 
+[ERROR] npm ERR! While resolving: react-lottie@1.2.3
+Run npm install i react-lottie --legacy-peer-deps once again.
+All this is is that we are using React 18 while currently lottie supports React 16 and under.
+This is just for the animation aspect of our project.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#6. Start the project
+run the following command:
+npm start

@@ -1,0 +1,1 @@
+ npm install i react-lottie --legacy-peer-deps

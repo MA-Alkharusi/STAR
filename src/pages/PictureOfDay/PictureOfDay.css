@@ -1,0 +1,15 @@
+/* PictureOfDay.css */
+
+.picture-container {
+  /* ... existing styles ... */
+}
+
+body.pictureofday-body {
+  background: none; /* remove the background image */
+}
+h1{
+  color : white;
+}
+p{
+  color: white;
+}

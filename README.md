@@ -30,12 +30,11 @@ run the following commands:
 
 npm install i react-lottie --legacy-peer-deps
 
-npm install
-
 npm install react-datepicker --legacy-peer-deps
 
 npm install react-intersection-observer --legacy-peer-deps
 
+npm install
 
 If you get this error: 
 [ERROR] npm ERR! While resolving: react-lottie@1.2.3

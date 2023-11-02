@@ -1,0 +1,200 @@
+
+/* This is the main container for the page */
+.Gallery {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%; 
+}
+
+/* This is the background video */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1; 
+}
+
+/* This is the container for the title and the gallery */
+  .Title {
+    color: rgb(168, 165, 165);
+    font-size: 2em;
+  }
+  
+/* This is the image card */
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative; /* Context for z-index */
+    z-index: 2; /* Above the video background */
+    max-height: 60vh;
+    overflow-y: auto; 
+    width: 90%;
+  }
+  
+  /* Image Cards design*/
+  .image-card{
+    background: #070707bb;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 3px 6px rgb(225, 221, 221); /* Drop shadow effect */
+    overflow: hidden; /* Ensures the image follows the border radius */
+    width: 300px; /* Adjust card size */
+    height: 350px; /* Adjust card size */
+    position: relative; /* Establish a new stacking context */
+    z-index: 2;
+    color: white;
+  }
+  .image-card.selected .card-info {
+    display: block;
+  }
+  .image-card img {
+    width: 100%; /* Makes the image fully cover the card width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Ensures images of various sizes fit nicely */
+    
+  }
+  .image-card .card-title {
+    padding: 15px;
+    color: white; /* Style as needed */
+  }
+  .image-card .card-info {
+    display: none; /* Hide by default */
+    padding: 15px;
+    color: white; /* Style as needed */
+  }
+  .image-card:hover .card-info {
+    display: block;
+  }
+  
+  .image-card p {
+    padding: 15px;
+    margin: 0;
+    color: #f1eaead1;
+    font-size: 0.9em;
+    cursor: pointer; /* Change cursor to indicate clickable */
+    
+  }
+/* Style for the Home button - often a prominent button, so it stands out */
+.home-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  padding: 0.5em 1em;
+  background-color: #42454800;
+  color: rgb(168, 165, 165);
+  border: none;
+  border-radius: 30px; /* Rounded corners */
+  font-weight: bold;
+  font-size: 1.5rem; 
+  cursor: pointer;
+  text-decoration: none; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s ease;
+}
+.home-button:hover {
+  transform: translateX(-10px); 
+  text-decoration: none;
+}
+
+.home-button::before { 
+  content: '←'; 
+  margin-right: 10px; 
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.home-button:hover::before {
+  opacity: 1;
+}
+
+.date-picker-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; /* Centers items vertically */
+  width: 100%; /* Maintained, takes full width */
+  margin-top: 20px; /* Added a little space on top for separation */
+  position: relative;
+  z-index: 5;
+  padding: 15px; /* Added some padding inside the container */
+}
+
+  .DatePicker {
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .load-more-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px; /* Space above the button */
+    padding: 10px 20px; /* Padding for spacing inside the button */
+    background-color: #404142; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 1em;
+    font-weight: bold; /* Makes the text a bit heavier */
+    cursor: pointer; /* Changes the cursor to signify this is a clickable button */
+    transition: all 0.3s ease; /* Smooth transition for interactive states */
+    outline: none; /* Removes the outline to keep the design clean */
+    position: relative; 
+  }
+  
+  .load-more-button:hover,
+  .load-more-button:focus { /* Hover and focus states for interactivity */
+    background-color: #aaacae;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a shadow for depth */
+  }
+  
+  .load-more-button:disabled { /* Style for when the button is disabled */
+    background-color: #ccc; 
+    cursor: default;
+  }
+  
+  .loading-text {
+    margin: 0; 
+    font-size: 1em; 
+    color: #fff; 
+    opacity: 0.8; /* Slightly transparent to indicate a loading state */
+  }
+  
+
+  .image-gallery {
+    height: 500px; /* Adjust as needed */
+    overflow-y: scroll; /* This property triggers the scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 155, 0.7) transparent; /* Thumb and Track colors */
+    width: 100vw; /* Viewport width to cover the screen width */
+    height: 100vh; /* Viewport height to cover the screen height */
+    
+}
+
+/* This will style the scrollbar track (the part the thumb moves along) */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* A light grey track color */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* This will style the actual scrollbar thumb (the part you drag) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* A darker grey thumb color */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 3px solid #f1f1f1; /* Creates a border between the track and thumb */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* A even darker grey for hover state */
+}
+

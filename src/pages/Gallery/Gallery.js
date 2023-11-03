@@ -50,7 +50,7 @@ function Gallery() {
   const navigate = useNavigate(); 
   //goHome is a function that is used to navigate back to the Home page
   const goHome = () => {
-    navigate('/'); // This will navigate back to the Home page
+    navigate('/home'); // This will navigate back to the Home page
   };
  
   //getPastDates is a function that is used to generate dates for the initial load or based on selected date

@@ -30,6 +30,14 @@ run the following commands:
 
 npm install i react-lottie --legacy-peer-deps
 
+npm install react-datepicker --legacy-peer-deps
+
+npm install react-intersection-observer --legacy-peer-deps
+
+npm install firebase --legacy-peer-deps
+
+npm install react-bootstrap bootstrap --legacy-peer-deps
+
 npm install
 
 If you get this error: 

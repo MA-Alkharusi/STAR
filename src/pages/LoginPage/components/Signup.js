@@ -18,17 +18,23 @@ export default function Signup() {
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match")
     }
+    
+    else if (passwordRef.current.value.length < 6) {
+      return setError("Password must be at least 6 characters");
+    }
 
     try {
       setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
-      history.push("/")
-    } catch {
+      history("/")
+    } catch (error){
+      console.error(error)
       setError("Failed to create an account")
     }
-
-    setLoading(false)
+    finally{
+      setLoading(false)
+     }
   }
 
   return (

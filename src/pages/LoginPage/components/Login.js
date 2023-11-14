@@ -21,9 +21,9 @@ export default function Login() {
       navigate("/home")
     } catch {
       setError("Failed to log in")
-    }
-
-    setLoading(false)
+    }finally{
+      setLoading(false)
+     }
   }
 
   return (

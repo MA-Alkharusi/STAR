@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import backgroundVideo from '../Gallery/Background.mp4';
 import './PictureOfDay.css';
 
 //Please replace with your NASA API Key, visit https://api.nasa.gov/ when developing locally.
@@ -18,6 +20,12 @@ function PictureOfDay() {
   //all the above means is that the 'data' variable will be null or empty until we update it with the 'setData' function
   //and give it a value
   const [data, setData] = useState(null);
+    //useNavigate is a React hook that is used to navigate to different routes
+    const navigate = useNavigate(); 
+    //goHome is a function that is used to navigate back to the Home page
+    const goHome = () => {
+      navigate('/home'); // This will navigate back to the Home page
+    };
   //useEffect is another React Hook, it is used to perform side effects in a functional component
   useEffect(() => {
     //if you'd like to change the background of the page or add a differnet background, uncomment or play around
@@ -56,12 +64,16 @@ function PictureOfDay() {
   //if data is not null or empty we return the data to the screen
   return(
     //here we are returning the data and displaying it to the screen 
+    
     <div className="picture-container">
-      
+        <video autoPlay loop muted playsInline className="background-video">
+            <source src={backgroundVideo} type="video/mp4" />
+        </video>
       <img src={data.url} alt={data.title} className="picture-image" />
       <h1 className="picture-title">{data.title}</h1>
-      <h2>Astronomic Picture of the Day</h2>
+      <h2 className="picture-title">Astronomic Picture of the Day</h2>
       <p className="picture-explanation">{data.explanation}</p>
+      <button className="home-button" onClick={goHome}>STAR</button>
     </div>
   );
 }

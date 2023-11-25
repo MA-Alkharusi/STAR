@@ -38,7 +38,7 @@ npm install firebase --legacy-peer-deps
 
 npm install react-bootstrap bootstrap --legacy-peer-deps
 
-npm install
+npm install --legacy-peer-deps
 
 If you get this error: 
 [ERROR] npm ERR! While resolving: react-lottie@1.2.3

@@ -14,7 +14,7 @@ import Header from "./components/Header";
 import Sections from "./components/Sections";
 import Gallery from "./pages/Gallery/Gallery";
 import PictureOfDay from "./pages/PictureOfDay/PictureOfDay";
-import WeatherOnMars from "./pages/WeatherOnMars/WeatherOnMars";
+import WeatherOnMars from "./pages/WeatherOnMars/App";
 import WildFireTracker from "./pages/WildFireTracker/WildFireTracker";
 import RocketAnimation from "./components/RocketAnimation";
 import './App.css';

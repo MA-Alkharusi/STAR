@@ -1,7 +1,8 @@
-/* CHANGE ALL THIS CSS */
+
 
 body.pictureofday-body {
-  background: none; /* remove the background image */
+  background: none;
+ 
 }
 .picture-title{
   color : rgb(185, 181, 181);
@@ -13,13 +14,15 @@ body.pictureofday-body {
   text-align: justify;
   margin-left: 10%;
   margin-right: 10%;
+
 }
 .picture-image{
   margin-top: 3%;
-  margin-left: 35%;
-  
-  width: 30%;
-  height: 30%;
+  margin-left: 38%;
+  width: 25%;
+  height: 25%;
   border-radius: 20px;
+
+
 
 }

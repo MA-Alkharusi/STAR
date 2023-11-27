@@ -1,0 +1,64 @@
+
+.login {
+    background: #ffffff; 
+    border-radius: 20px; /* Rounded corners for the card */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    width: 340px; /* Specific width of the card */
+    margin: 20px auto; /* Center card with automatic horizontal margins */
+    transition: 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Title styles */
+.login .text-center {
+    color: #333; /* Dark color for the text */
+}
+
+/* Form input styles */
+.login .form-group {
+    margin-bottom: 20px; 
+}
+
+.login .form-label {
+    display: block; 
+    color: #333; /* Label color */
+}
+
+.login .form-control {
+    width: 100%;
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+}
+
+/* Button styles */
+.login .btn {
+    width: 100%; 
+    padding: 10px; 
+    border: none;
+    background-color: #573b8a; /* Background color */
+    color: white; /* Text color */
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+.login .btn:hover {
+    background-color: #6d44b8; /* Darker shade on hover */
+}
+
+/* Link styles */
+.login a {
+    color: #573b8a; /* Color for links */
+    text-decoration: none; 
+}
+
+.login a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Additional bottom link style */
+.text-center.mt-2 a {
+    color: #573b8a; 
+    font-size: 0.9em; 
+}

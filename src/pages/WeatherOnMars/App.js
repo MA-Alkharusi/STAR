@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import "./app.css"
 import {
   AppWrapper,
   GlobalStyle,
@@ -12,6 +14,7 @@ import Unit from './components/Unit';
 import WeatherData from './components/WeatherData';
 import { formatDate } from './helpers';
 import BGImage from './mars.jpg';
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -58,8 +61,14 @@ const App = () => {
     fetchFromAPI();
   }, []);
 
+  const navigate = useNavigate(); 
+  const goHome = () => {
+    navigate('/home'); // This will navigate back to the Home page
+  };
+
   return (
     <>
+    <button className="homeButton" onClick={goHome}>STAR</button>
       <GlobalStyle bgImage={BGImage} />
       <AppWrapper>
         <MarsWeather>

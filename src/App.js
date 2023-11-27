@@ -1,23 +1,23 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//import React from "react";
+import React, { useEffect, useState } from "react";
+import { Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
 import { AuthProvider } from "./pages/LoginPage/contexts/AuthContext";
-
 // Import components from the first app
-import Login from "./pages/LoginPage/components/Login";
-import Signup from "./pages/LoginPage/components/Signup";
-import PrivateRoute from "./pages/LoginPage/components/PrivateRoute";
 import ForgotPassword from "./pages/LoginPage/components/ForgotPassword";
+import Login from "./pages/LoginPage/components/Login";
+import PrivateRoute from "./pages/LoginPage/components/PrivateRoute";
+import Signup from "./pages/LoginPage/components/Signup";
 import UpdateProfile from "./pages/LoginPage/components/UpdateProfile";
 
 // Import components from the second app
+import './App.css';
 import Header from "./components/Header";
+import RocketAnimation from "./components/RocketAnimation";
 import Sections from "./components/Sections";
 import Gallery from "./pages/Gallery/Gallery";
 import PictureOfDay from "./pages/PictureOfDay/PictureOfDay";
 import WeatherOnMars from "./pages/WeatherOnMars/App";
 import WildFireTracker from "./pages/WildFireTracker/WildFireTracker";
-import RocketAnimation from "./components/RocketAnimation";
-import './App.css';
 
 // HomePage component from the second app
 function HomePage() {
@@ -32,18 +32,40 @@ function HomePage() {
 }
 
 // RocketAwareRouter component from the second app
+
+
 function RocketAwareRouter() {
-  // ... keep the existing logic of RocketAwareRouter
+  const [showAnimation, setShowAnimation] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Show the rocket animation
+    setShowAnimation(true);
+
+    // Hide the rocket animation
+    const timer = setTimeout(() => setShowAnimation(false), 300); // Adjust the duration as needed
+
+    // Cleanup the timer 
+    return () => clearTimeout(timer);
+  }, [location]);
+
+  return (
+    <>
+      {showAnimation && <RocketAnimation />}
+      {/* Rest of your components */}
+    </>
+  );
 }
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        
+      <RocketAwareRouter /> 
             <Routes>
               {/* Adjusted to have HomePage as the default route */}
               <Route path="/" element={<Login />} />
+              
               <Route path="/update-profile" element={<PrivateRoute component={UpdateProfile} />} />
               <Route path="/signup" element={<Signup />} />
              
@@ -59,7 +81,7 @@ function App() {
               {/* Existing PrivateRoute for Dashboard can be removed or repurposed if needed */}
               {/* <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} /> */}
             </Routes>
-            <RocketAwareRouter />
+            
           
       </AuthProvider>
     </Router>

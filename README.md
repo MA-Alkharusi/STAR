@@ -38,6 +38,8 @@ npm install firebase --legacy-peer-deps
 
 npm install react-bootstrap bootstrap --legacy-peer-deps
 
+npm install styled-components --legacy-peer-deps
+
 npm install --legacy-peer-deps
 
 If you get this error: 

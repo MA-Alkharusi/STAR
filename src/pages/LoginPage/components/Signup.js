@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import "./login.css"
+import logo from "./logo.webp"
 
 export default function Signup() {
   const emailRef = useRef()
@@ -42,6 +43,9 @@ export default function Signup() {
     <>
       <Card className="login">
         <Card.Body className="signup">
+        <div className="w-100 text-center mb-4">
+      <img src={logo} alt="logo" width="100px" height="100px" style={{ borderRadius: '50%' }} />
+    </div>
           <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>

@@ -7,6 +7,9 @@
     width: 340px; /* Specific width of the card */
     margin: 20px auto; /* Center card with automatic horizontal margins */
     transition: 0.3s; /* Smooth transition for hover effects */
+    margin-top: 10%;
+
+   
 }
 
 /* Title styles */

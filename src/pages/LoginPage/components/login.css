@@ -1,20 +1,19 @@
 
 .login {
-    background: #ffffff; 
+    background: #000000e0  !important;
     border-radius: 20px; /* Rounded corners for the card */
-    padding: 20px;
+    padding: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
     width: 340px; /* Specific width of the card */
     margin: 20px auto; /* Center card with automatic horizontal margins */
     transition: 0.3s; /* Smooth transition for hover effects */
-    margin-top: 10%;
-
-   
+    margin-top: 4%;
 }
 
 /* Title styles */
 .login .text-center {
-    color: #333; /* Dark color for the text */
+    color: rgb(177, 168, 253);
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 /* Form input styles */
@@ -24,7 +23,7 @@
 
 .login .form-label {
     display: block; 
-    color: #333; /* Label color */
+    color: #fff; /* Label color */
 }
 
 .login .form-control {
@@ -62,6 +61,11 @@
 
 /* Additional bottom link style */
 .text-center.mt-2 a {
-    color: #573b8a; 
-    font-size: 0.9em; 
+    color: #a48ecc; 
+    font-size: 0.9em;
+}
+
+.Loginheader{
+  position: relative; 
+  height: 1vh; 
 }

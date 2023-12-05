@@ -31,7 +31,7 @@ export default function Login() {
   
   return (
     <>
-    
+    <header className="Login-title">STAR</header>
       <Card className="login">
         <Card.Body >
         <div className="w-100 text-center mb-4">
@@ -58,7 +58,7 @@ export default function Login() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup">Sign Up</Link>
+         <Link to="/signup">Need An Account? Sign Up</Link>
       </div>
     </>
   )

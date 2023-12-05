@@ -1,7 +1,6 @@
 /* default stylings */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
   background: url('/public/images/background.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
@@ -12,27 +11,37 @@ body {
 /* TITLE of website or Header */
 .App-header {
   position: relative; 
-  height: 100vh; 
+  height: 610px; 
+  background: #00000080; 
+  border-radius: 100px;
+  padding: 10px;
+  width: 960px;
+  margin: 0px auto;
+  transition: 0.3s;
+  margin-top: 1.25%;
 }
 
 .text-container {
   position: absolute; 
   left: 7%; 
   bottom: 25%; 
+  opacity: 1;
 }
 
 .star-big {
-  color: white;
+  color: rgb(177, 168, 253);
   font-size: 12rem; 
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: -4rem;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .star-title {
   color: white;
   font-size: 4rem; 
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .powered-by {
@@ -47,14 +56,14 @@ body {
 .sections-container {
   position: absolute; 
   right: 5%; 
-  bottom: 10%; 
+  bottom: 0%; 
   display: flex;
   flex-direction: column;
   align-items: flex-end; 
 }
 
 .section {
-  color: white;
+  color: rgb(128, 128, 128);
   font-size: 1.5rem; 
   font-weight: bold;
   margin-bottom: 1rem;
@@ -63,12 +72,13 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none; 
-  color: white; 
+  color: rgb(107, 105, 105); 
 }
 /* effects to SECTIONS */
 .section:hover {
   transform: translateX(-10px); 
   text-decoration: none; 
+  color: white;
 }
 
 .section::after {

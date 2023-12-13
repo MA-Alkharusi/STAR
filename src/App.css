@@ -12,10 +12,8 @@ body {
 .App-header { 
   position:relative;
   height: 560px; 
-  background: #00000080; 
   border-radius: 10px;
   padding: 10px;
-  transition: 0.3s;
   margin-top: 3%;
 }
 
@@ -28,14 +26,21 @@ body {
 
 .star-big {
   color: rgb(177, 168, 253);
-  font-size: 12rem; 
+  font-size: 12rem;
   font-weight: bold;
-  margin-bottom: -4rem;
+  position: relative;
   font-family: "Lucida Console", "Courier New", monospace;
+  margin-top: 10%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+  text-rendering: optimizeLegibility; 
+  transition: all 0.3s ease;
 }
 
+
 .star-title {
-  color: white;
+  color: rgb(184, 181, 181);
   font-size: 4rem; 
   font-weight: bold;
   margin-bottom: 3rem;

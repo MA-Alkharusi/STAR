@@ -8,3 +8,4 @@ const LocationMarker = ({ lat, lng, onClick }) => {
         </div>
     )
 }
+export default LocationMarker

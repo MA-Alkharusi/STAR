@@ -17,7 +17,7 @@ import Sections from "./components/Sections";
 import Gallery from "./pages/Gallery/Gallery";
 import PictureOfDay from "./pages/PictureOfDay/PictureOfDay";
 import WeatherOnMars from "./pages/WeatherOnMars/App";
-import WildFireTracker from "./pages/WildFireTracker/WildFireTracker";
+import WildFireTracker from "./pages/WildFireTracker/WildFire";
 
 // HomePage component from the second app
 function HomePage() {

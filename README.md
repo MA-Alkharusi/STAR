@@ -40,6 +40,12 @@ npm install react-bootstrap bootstrap --legacy-peer-deps
 
 npm install styled-components --legacy-peer-deps
 
+npm install @iconify/icons-mdi --legacy-peer-deps
+
+npm install @iconify/react --legacy-peer-deps
+
+npm install google-map-react --legacy-peer-deps
+
 npm install --legacy-peer-deps
 
 If you get this error: 

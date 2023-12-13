@@ -70,3 +70,7 @@ body {
   .location-info li {
     padding: 5px 0;
   }
+
+  .homeButton{
+    margin-top: 3%;
+  }

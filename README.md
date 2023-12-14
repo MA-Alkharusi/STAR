@@ -28,23 +28,7 @@ cd STAR
 #### 5 Installing dependencies
 run the following commands:
 
-npm install i react-lottie --legacy-peer-deps
-
-npm install react-datepicker --legacy-peer-deps
-
-npm install react-intersection-observer --legacy-peer-deps
-
-npm install firebase --legacy-peer-deps
-
-npm install react-bootstrap bootstrap --legacy-peer-deps
-
-npm install styled-components --legacy-peer-deps
-
-npm install @iconify/icons-mdi --legacy-peer-deps
-
-npm install @iconify/react --legacy-peer-deps
-
-npm install google-map-react --legacy-peer-deps
+npm run legacy
 
 npm install --legacy-peer-deps
 

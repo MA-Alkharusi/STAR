@@ -41,3 +41,22 @@ This is just for the animation aspect of our project.
 #### 6. Start the project
 run the following command:
 npm start
+
+#### 7. Application Testing
+Install the necessary dependencies by running the following command:
+
+npm install cypress --save-dev --save-dev--legacy-peer-deps
+
+Next navigate to the root folder. And run the following command:
+npx cypress open
+
+This will open cypress. Go into component testing and click start testing in your desired browser. 
+In the Component specs section you should find our current tests:
+
+![Alt text](<cypress/downloads/Web capture_15-12-2023_10439_localhost.jpeg>)
+
+![Alt text](<cypress/downloads/Web capture_15-12-2023_104254_localhost.jpeg>)
+
+![Alt text](<cypress/downloads/Web capture_15-12-2023_104331_localhost.jpeg>)
+
+You are now settup to run you own test cases.

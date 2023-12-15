@@ -45,7 +45,7 @@ npm start
 #### 7. Application Testing
 Install the necessary dependencies by running the following command:
 
-npm install cypress --save-dev --save-dev--legacy-peer-deps
+npm install cypress --save-dev --legacy-peer-deps
 
 Next navigate to the root folder. And run the following command:
 npx cypress open

@@ -14,6 +14,7 @@ import Header from "./components/Header";
 import Sections from "./components/Sections";
 import Gallery from "./pages/Gallery/Gallery";
 import PictureOfDay from "./pages/PictureOfDay/PictureOfDay";
+import SolarSystem from "./pages/SolarSystem/SolarSystem";
 import WeatherOnMars from "./pages/WeatherOnMars/WeatherOnMars";
 import WildFireTracker from "./pages/WildFireTracker/WildFireTracker";
 import RocketAnimation from "./components/RocketAnimation";
@@ -53,6 +54,7 @@ function App() {
               <Route path="/home" element={<PrivateRoute component={HomePage} />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/pictureofday" element={<PictureOfDay />} />
+              <Route path="/solarsystem" element={<SolarSystem />} />
               <Route path="/weatheronmars" element={<WeatherOnMars />} />
               <Route path="/wildfiretracker" element={<WildFireTracker />} />
 

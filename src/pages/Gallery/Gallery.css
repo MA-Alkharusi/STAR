@@ -198,3 +198,18 @@
   background-color: #555; /* A even darker grey for hover state */
 }
 
+.favorites-button {
+  margin-left: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.favorites-button:hover {
+  background-color: #0056b3;
+}
+
+
+

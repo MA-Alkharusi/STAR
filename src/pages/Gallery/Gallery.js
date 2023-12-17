@@ -58,25 +58,11 @@ const handleShowFavorites = () => {
 };
 
 //Function to toggle the favorite status of an image
-const toggleFavorite = (index) => {
+//Function to toggle the favorite status of an image
+const toggleFavorite = (id) => {
   setFavorites((prevFavorites) => {
-    // Create a copy of the previous favorites
     const updatedFavorites = { ...prevFavorites };
-
-    //if showing only favorites, toggle the favorite status of visible images
-    if (showFavorites) {
-      // Filter visible images based on current favorites
-      const visibleImages = items.filter((_, i) => favorites[i]);
-
-      // Toggle the favorite status of each visible image
-      visibleImages.forEach((img, i) => {
-        updatedFavorites[items.indexOf(img)] = !updatedFavorites[items.indexOf(img)];
-      });
-    } else {
-      //if showing all images, toggle the favorite status of the clicked image
-      updatedFavorites[index] = !updatedFavorites[index];
-    }
-
+    updatedFavorites[id] = !updatedFavorites[id];
     return updatedFavorites;
   });
 };
@@ -176,6 +162,9 @@ const toggleFavorite = (index) => {
 //here we are testing if useEffect is ran
 //here we are testing if we got data from the NASA API
 //here we are updating the state variable 'data' with the data we got from the NASA API
+const imagesToDisplay = showFavorites
+  ? items.filter((_, index) => favorites[index])
+  : items;
 return (
   <div className="Gallery">
     <video autoPlay loop muted playsInline className="background-video">
@@ -196,28 +185,40 @@ return (
         placeholderText="Search by date"
       />
     </div>
-
+    
+    {imagesToDisplay.map((image, index) => (
+      <img 
+        src={image.src} 
+        alt={image.alt} 
+        key={index} 
+        onClick={() => toggleFavorite(index)} // Add an onClick handler to toggle favorite status
+      />
+    ))}
+    
     {/* Add the "Show Favorites" button */}
     <button onClick={handleShowFavorites} className="show-favorites-button">
       {showFavorites ? 'Show All' : 'Show Favorites'}
     </button>
 
     <div className="image-gallery">
-      {items
-        .filter((item, index) => !showFavorites || favorites[index])
-        .map((item, index) => (
-          <div key={item.date} className={`image-card${selectedCard === index ? ' selected' : ''}`} onClick={() => handleCardClick(index)}>
-            <img src={item.url} alt={item.title} />
-            {/* Favorite button */}
-            <button className={`favorite-button${favorites[index] ? ' active' : ''}`} onClick={() => toggleFavorite(index)}>
-            ♥ 
-            </button>
-            <div className="card-title">{item.title}</div>
-            <div className={`card-info${selectedCard === index ? ' show' : ''}`}>
-              <p>{item.explanation}</p>
-            </div>
-          </div>
-        ))}
+    {items
+    .filter((item) => !showFavorites || favorites[item.date]) // Use item.date as the unique identifier
+    .map((item) => (
+      <div key={item.date} className={`image-card${selectedCard === item.date ? ' selected' : ''}`} onClick={() => handleCardClick(item.date)}>
+        <img src={item.url} alt={item.title} />
+        {/* Favorite button */}
+        <button className={`favorite-button${favorites[item.date] ? ' active' : ''}`} onClick={(e) => {
+          e.stopPropagation(); // Prevent the click event from bubbling up to the parent
+          toggleFavorite(item.date); // Use item.date as the unique identifier
+        }}>
+        ♥ 
+        </button>
+        <div className="card-title">{item.title}</div>
+        <div className={`card-info${selectedCard === item.date ? ' show' : ''}`}>
+          <p>{item.explanation}</p>
+        </div>
+      </div>
+    ))}
     </div>
     <div ref={ref}></div>
     {inView && (

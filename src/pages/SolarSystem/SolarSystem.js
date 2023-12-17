@@ -202,12 +202,15 @@ function SolarSystem() {
     return () => {
       // Remove event listener on cleanup
       window.removeEventListener('mousemove', onMouseMove);
-
+  
       const container = document.getElementById('solar-system-container');
-      container.parentNode.removeChild(container);
-
+      if (container && container.parentNode) {
+          container.parentNode.removeChild(container);
+      }
+  
       renderer.dispose();
-    };
+  };
+  
   }, []);
 
   return (

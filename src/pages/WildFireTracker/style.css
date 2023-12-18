@@ -72,5 +72,35 @@ body {
   }
 
   .homeButton{
-    margin-top: 3%;
+    position: absolute;
+    top: 6%;
+    left: 10px;
+    z-index: 10;
+    padding: 0.15em 1em;
+    background-color: #42454800;
+    color: rgb(135, 133, 133);
+    border: none;
+    border-radius: 30px; /* Rounded corners */
+    font-weight: bold;
+    font-size: 1.5rem; 
+    cursor: pointer;
+    text-decoration: none; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease;
   }
+  .homeButton:hover {
+    transform: translateX(-10px); 
+    text-decoration: none;
+  }
+  
+  .homeButton::before { 
+    content: '←'; 
+    margin-right: 10px; 
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .homeButton:hover::before {
+    opacity: 1;
+  }
+  

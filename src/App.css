@@ -20,7 +20,7 @@ body {
 .text-container {
   position: relative; 
   left: 7%; 
-  bottom: 9%; 
+  bottom: 5%; 
   opacity: 1;
 }
 
@@ -58,7 +58,7 @@ body {
 
 .sections-container {
   position: absolute; 
-  right: 5%; 
+  right: 4%; 
   bottom: 0%; 
   display: flex;
   flex-direction: column;
@@ -94,6 +94,37 @@ body {
 .section:hover::after {
   opacity: 1; 
 }
+
+
+.solarsystem{
+  color: rgb(128, 128, 128);
+  font-size: 1.5rem; 
+  font-weight: bold;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; 
+  display: flex;
+  align-items: center;
+  text-decoration: none; 
+  color: rgb(107, 105, 105); 
+}
+.solarsystem::after {
+  content: '→'; 
+  margin-left: 10px; 
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out; 
+}
+
+.solarsystem:hover::after {
+  opacity: 1; 
+}
+
+.solarsystem:hover {
+  transform: translateX(-10px); 
+  text-decoration: none; 
+  color: white;
+}
+
 
 
 /* Media query's for MOBILE FRIENDLY UI*/

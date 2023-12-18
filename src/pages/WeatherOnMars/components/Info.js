@@ -12,6 +12,7 @@ const Info = () => (
     <p>
       This is only a part of InSight’s mission.{' '}
       <a href='https://mars.nasa.gov/insight/mission/overview/'>Click here</a>
+     
       to find out more.
     </p>
   </InfoStyles>

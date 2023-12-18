@@ -198,3 +198,61 @@
   background-color: #555; /* A even darker grey for hover state */
 }
 
+.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.favorite-button span {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: white; /* Default background color */
+  border-radius: 50%; /* Optional: Make it a circle */
+  transition: background-color 0.3s ease; /* Add animation on hover */
+}
+
+.favorite-button:hover span {
+  background-color: red; /* Change background color to red on hover */
+}
+
+.favorite-button span::before {
+  content: '\2661'; /* Unicode character for an outline heart */
+  font-size: 24px;
+  color: black; /* Color of the outline heart */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.favorite-button.selected span::before {
+  content: '\2665'; /* Unicode character for a filled heart */
+  color: white; /* Color of the filled heart when selected */
+}
+
+
+
+.show-favorites-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add animation on hover */
+
+  /* Additional styles for when the button is hovered */
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+
+

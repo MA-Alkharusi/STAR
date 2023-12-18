@@ -46,6 +46,27 @@ function Gallery() {
     threshold: 0,
   });
 
+  //State to track the favorite status 
+const [favorites, setFavorites] = useState({});
+
+//State to control whether to show favorite images or all images
+const [showFavorites, setShowFavorites] = useState(false);
+
+//Function to toggle the visibility of favorite images
+const handleShowFavorites = () => {
+  setShowFavorites(!showFavorites);
+};
+
+//Function to toggle the favorite status of an image
+//Function to toggle the favorite status of an image
+const toggleFavorite = (id) => {
+  setFavorites((prevFavorites) => {
+    const updatedFavorites = { ...prevFavorites };
+    updatedFavorites[id] = !updatedFavorites[id];
+    return updatedFavorites;
+  });
+};
+
   //useNavigate is a React hook that is used to navigate to different routes
   const navigate = useNavigate(); 
   //goHome is a function that is used to navigate back to the Home page
@@ -138,53 +159,75 @@ function Gallery() {
     fetchImages();
   }, [startDate, loadCount]); // This is the dependency array, it tells us when to run the useEffect function
 
-  
 //here we are testing if useEffect is ran
 //here we are testing if we got data from the NASA API
 //here we are updating the state variable 'data' with the data we got from the NASA API
+const imagesToDisplay = showFavorites
+  ? items.filter((_, index) => favorites[index])
+  : items;
 return (
-  //here we are returning the data and displaying it to the screen
-    <div className="Gallery">
-       <video autoPlay loop muted playsInline className="background-video">
-            <source src={backgroundVideo} type="video/mp4" />
-        </video>
-      <h1 className='Title'>Gallery</h1>
-  
-      <button className="home-button" onClick={goHome}>STAR</button>
-  
-  <div className="date-picker-container">
-        <DatePicker
-          selected={startDate}
-          onChange={(date) => {
-            setItems([]); // Clear current items
-            setStartDate(date);
-          }}
-          isClearable
-          placeholderText="Search by date"
-        />
-      </div>
-  
-       <div className="image-gallery">
-       {items.map((item, index) => (
-  <div key={item.date}
-       className={`image-card${selectedCard === index ? ' selected' : ''}`}
-       onClick={() => handleCardClick(index)}>
-    <img src={item.url} alt={item.title} />
-    <div className="card-title">{item.title}</div>
-    <div className={`card-info${selectedCard === index ? ' show' : ''}`}>
-      <p>{item.explanation}</p>
+  <div className="Gallery">
+    <video autoPlay loop muted playsInline className="background-video">
+      <source src={backgroundVideo} type="video/mp4" />
+    </video>
+    <h1 className='Title'>Gallery</h1>
+
+    <button className="home-button" onClick={goHome}>STAR</button>
+
+    <div className="date-picker-container">
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => {
+          setItems([]); // Clear current items
+          setStartDate(date);
+        }}
+        isClearable
+        placeholderText="Search by date"
+      />
     </div>
-  </div>
-))}
+    
+    {imagesToDisplay.map((image, index) => (
+      <img 
+        src={image.src} 
+        alt={image.alt} 
+        key={index} 
+        onClick={() => toggleFavorite(index)} // Add an onClick handler to toggle favorite status
+      />
+    ))}
+    
+    {/* Add the "Show Favorites" button */}
+    <button onClick={handleShowFavorites} className="show-favorites-button">
+      {showFavorites ? 'Show All' : 'Show Favorites'}
+    </button>
+
+    <div className="image-gallery">
+        {items
+          .filter((item) => !showFavorites || favorites[item.date])
+          .map((item) => (
+            <div key={item.date} className={`image-card${selectedCard === item.date ? ' selected' : ''}`} onClick={() => handleCardClick(item.date)}>
+              <img src={item.url} alt={item.title} />
+              {/* Animated heart button */}
+              <button className={`favorite-button${favorites[item.date] ? ' active' : ''}`} onClick={(e) => {
+                e.stopPropagation();
+                toggleFavorite(item.date);
+              }}>
+                <span className="heart"></span>
+              </button>
+              <div className="card-title">{item.title}</div>
+              <div className={`card-info${selectedCard === item.date ? ' show' : ''}`}>
+                <p>{item.explanation}</p>
+              </div>
+            </div>
+          ))}
       </div>
       <div ref={ref}></div>
       {inView && (
         <button onClick={handleLoadMore} className="load-more-button" disabled={isLoading}>
-           {isLoading ? (
-        <span className="loading-text">Loading...</span>
-      ) : (
-        "Load More"
-      )}
+          {isLoading ? (
+            <span className="loading-text">Loading...</span>
+          ) : (
+            "Load More"
+          )}
         </button>
       )}
     </div>

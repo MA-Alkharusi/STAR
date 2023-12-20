@@ -27,6 +27,7 @@ import saturnImage from './SSimg/saturn3.webp';
 import uranusImage from './SSimg/uranus3.jpg';
 import neptuneImage from './SSimg/neptune3.jpg';
 import plutoImage from './SSimg/pluto3.webp';
+import sunImage from './SSimg/sun3.jpg';
 
 import './SolarSystem.css';
 import { useNavigate } from 'react-router-dom';
@@ -71,25 +72,40 @@ function SolarSystem() {
       // Calculate normalized coordinates
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
+    
       // Update the picking ray with the camera and mouse position
       raycaster.setFromCamera(mouse, camera);
-
+    
       // Calculate objects intersecting the picking ray
       const intersects = raycaster.intersectObjects(scene.children, true);
-
+    
       if (intersects.length > 0) {
-        const planetInfo = intersects[0].object.userData?.planetInfo;
+        let planetInfo = intersects[0].object.userData?.planetInfo;
+    
+        // Check if the hovered object is the sun
+        if (!planetInfo && intersects[0].object === sun) {
+          planetInfo = {
+            name: 'The Sun',
+            Sinfo: 'Yellow Dwarf Star',
+            Ssize: '1.39 million kilometres',
+            Slocation: 'The Milky Way Galaxy',
+            temperature: '5500℃',
+            description: 'The Sun, residing at the solar systems core, is a blazing sphere of hot plasma, fueling life on Earth. In around 5 billion years, it will metamorphose into a Red Giant, marking the next chapter in its cosmic cycle.',
+            image: sunImage, // You can use the sun texture or another suitable image
+          };
+        }
+    
         setHoveredPlanet(planetInfo);
       } else {
         setHoveredPlanet(null);
       }
     }
+    
 
     // Add event listener to window
     window.addEventListener('mousemove', onMouseMove);
 
-    const sunGeo = new THREE.SphereGeometry(40, 30, 30);
+   const sunGeo = new THREE.SphereGeometry(40, 30, 30);
     const sunMat = new THREE.MeshBasicMaterial({
       map: textureLoader.load(sunTexture)
     });
@@ -286,19 +302,31 @@ function SolarSystem() {
   return (
     <div>
       <div id="solar-system-container" className="solar-system-container" />
-
-      <button className="home-button" onClick={ goHome }> Return Home</button>
-
+  
+      <button className="home-button" onClick={goHome}> Return Home</button>
+  
       {hoveredPlanet && (
         <div className="planet-info">
           <h2>{hoveredPlanet.name}</h2>
-          <p><strong>Type:</strong> {hoveredPlanet.info}</p>
-          <p><strong>Distance From Sun:</strong> {hoveredPlanet.distance}</p>
-          <p><strong>Day Length:</strong> {hoveredPlanet.day}</p>
-          <p><strong>Moons:</strong> {hoveredPlanet.moons}</p>
+          {hoveredPlanet.name === 'The Sun' && (
+            <>
+              <p><strong>Star Type:</strong> {hoveredPlanet.Sinfo}</p>
+              <p><strong>Diameter:</strong> {hoveredPlanet.Ssize}</p>
+              <p><strong>Location:</strong> {hoveredPlanet.Slocation}</p>
+              <p><strong>Surface Temperature:</strong> {hoveredPlanet.temperature}</p>
+            </>
+          )}
+          {hoveredPlanet.name !== 'The Sun' && (
+            <>
+              <p><strong>Type:</strong> {hoveredPlanet.info}</p>
+              <p><strong>Distance From Sun:</strong> {hoveredPlanet.distance}</p>
+              <p><strong>Day Length:</strong> {hoveredPlanet.day}</p>
+              <p><strong>Moons:</strong> {hoveredPlanet.moons}</p>
+            </>
+          )}
           <p><strong>General Info:</strong> {hoveredPlanet.description}</p>
           <div className="picture">
-              <p><strong></strong> <img src={hoveredPlanet.image} alt={hoveredPlanet.name} /></p>
+            <p><strong></strong> <img src={hoveredPlanet.image} alt={hoveredPlanet.name} /></p>
           </div>
         </div>
       )}

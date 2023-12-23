@@ -1,5 +1,5 @@
 # STAR - Space Technology and Research - Powered by NASA
-A React.js & Firebase application which interacts with the NASA API. Cypress was used for component testing. Deployed on netlify - https://velvety-capybara-459448.netlify.app/.
+Technologies Used - React.js, Three.js, Firebase, Bootstrap/CSS, interacting with NASA API and Google Maps API. Cypress was used for component testing. Deployed on netlify - https://velvety-capybara-459448.netlify.app/.
 
 ### Prerequisites:
 Node.js installed and npm(comes with Node.js)
